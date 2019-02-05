@@ -118,8 +118,8 @@ export class DateframeService {
         hour: temp_date.getHours(),
         minute: temp_date.getMinutes(),
         am_pm: this.get_date_format(temp_date, 'a'),
-        date: this.get_date_format(temp_date, 'yyyy-MM-dd'),
-        time: this.get_date_format(temp_date, 'hh:mm a'),
+        formatted_date: this.get_date_format(temp_date, 'yyyy-MM-dd'),
+        formatted_time: this.get_date_format(temp_date, 'hh:mm a'),
         _init: temp_date
       }
     );
@@ -134,7 +134,7 @@ export class DateframeService {
             if (result) {
               this.get_first_active_slot(result)
                 .then(slot => {
-                  console.log(' asap result ', result, slot);
+                  console.log(' asap result ', this.get_date_time(result).formatted_date, slot);
                 })
                 .catch(error => {
                   console.log('error get_first_active_slot ', error);
